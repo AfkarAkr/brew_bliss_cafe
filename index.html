@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Brew Bliss Cafe serves bright coffee, thoughtful bites, and slow moments in the heart of the neighborhood.">
+  <title>Brew Bliss Cafe | Coffee worth lingering over</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="announcement-bar">
+    <p>Freshly roasted, locally loved <span aria-hidden="true">*</span> Open daily from 7am</p>
+  </div>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Brew Bliss Cafe home">
+        <span class="brand-mark" aria-hidden="true">BB</span>
+        <span class="brand-copy"><strong>Brew Bliss</strong><small>CAFÉ & ROASTERY</small></span>
+      </a>
+
+      <button class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <a href="#about">Our story</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Visit us</a>
+        <button class="cart-button" type="button" data-open-cart aria-label="Open your order">
+          <span class="cart-icon" aria-hidden="true">{ }</span>
+          <span>Your order</span>
+          <b class="cart-count" id="cart-count">0</b>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">A little more bliss in your cup</p>
+          <h1>Good coffee.<br><em>Good company.</em><br>Good day.</h1>
+          <p class="hero-text">Thoughtfully roasted coffee, house-made treats, and a sunny corner to call your own.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#menu">Explore the menu <span aria-hidden="true">&#8594;</span></a>
+            <a class="text-link" href="#about">Our story <span aria-hidden="true">&#8594;</span></a>
+          </div>
+          <div class="hero-note"><span aria-hidden="true">&#10022;</span> Roasted with care in small batches</div>
+        </div>
+        <div class="hero-visual" aria-label="Latte art and coffee beans">
+          <div class="sun-disc"></div>
+          <div class="hero-beans beans-back" aria-hidden="true"></div>
+          <div class="cup-shadow" aria-hidden="true"></div>
+          <div class="coffee-cup" aria-hidden="true"><div class="latte-art"></div><div class="cup-handle"></div></div>
+          <div class="hero-beans beans-front" aria-hidden="true"></div>
+          <div class="visual-label"><span>01</span><strong>House roast</strong><small>Bright & balanced</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="container about-grid">
+        <div class="section-heading">
+          <p class="eyebrow">Our little corner of the world</p>
+          <h2>Made for slow mornings &<br><em>long conversations.</em></h2>
+        </div>
+        <div class="about-copy">
+          <p>We believe the best parts of a day should be savored. Brew Bliss started with a tiny roaster, a big love for people, and a simple idea: make coffee that gives you a reason to stay awhile.</p>
+          <p>Every cup is brewed to order, every pastry is made in our kitchen, and every guest is welcome at our table.</p>
+          <a class="text-link" href="#contact">Come say hello <span aria-hidden="true">&#8594;</span></a>
+        </div>
+      </div>
+      <div class="container stat-row" aria-label="Brew Bliss Cafe highlights">
+        <div class="stat"><strong>2018</strong><span>First brewed</span></div>
+        <div class="stat"><strong>12</strong><span>House-made treats</span></div>
+        <div class="stat"><strong>100%</strong><span>Good energy</span></div>
+        <div class="about-stamp" aria-hidden="true">Brew<br><em>happy</em></div>
+      </div>
+    </section>
+
+    <section class="section menu-section" id="menu">
+      <div class="container">
+        <div class="menu-header">
+          <div class="section-heading">
+            <p class="eyebrow">Something for everyone</p>
+            <h2>The good stuff.</h2>
+          </div>
+          <p class="menu-intro">From the first sip to the last crumb, there is always something worth gathering around.</p>
+        </div>
+        <div class="filter-bar" aria-label="Filter menu by category" role="group">
+          <button class="filter-button is-active" type="button" data-filter="all">All favorites</button>
+          <button class="filter-button" type="button" data-filter="coffee">Coffee</button>
+          <button class="filter-button" type="button" data-filter="tea">Tea & more</button>
+          <button class="filter-button" type="button" data-filter="food">Bites</button>
+        </div>
+        <div class="menu-grid" id="menu-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="quote-section">
+      <div class="container quote-inner">
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <blockquote>There is always time for coffee, and there is always time for a little joy.</blockquote>
+        <cite>— The Brew Bliss rule of life</cite>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <p class="eyebrow">Come find us</p>
+          <h2>Your table<br><em>is waiting.</em></h2>
+          <div class="contact-details">
+            <div><span class="detail-icon" aria-hidden="true">+</span><p><strong>123 Sunshine Avenue</strong><br>Willowbrook, WB 20408</p></div>
+            <div><span class="detail-icon" aria-hidden="true">&#9716;</span><p><strong>Mon - Fri: 7am - 6pm</strong><br>Sat - Sun: 8am - 5pm</p></div>
+            <div><span class="detail-icon" aria-hidden="true">@</span><p><strong>hello@brewbliss.example</strong><br>(555) 014-2024</p></div>
+          </div>
+        </div>
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="form-heading"><h3>Say hello</h3><p>Questions, kind words, or table talk. We read every note.</p></div>
+          <div class="form-row">
+            <label><span>Your name</span><input type="text" name="name" autocomplete="name" placeholder="Jane Doe" required></label>
+            <label><span>Email address</span><input type="email" name="email" autocomplete="email" placeholder="jane@example.com" required></label>
+          </div>
+          <label><span>How can we help?</span><textarea name="message" rows="4" placeholder="Tell us what's on your mind..." required></textarea></label>
+          <button class="button button-dark" type="submit">Send a little note <span aria-hidden="true">&#8594;</span></button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <a class="brand brand-light" href="#home" aria-label="Brew Bliss Cafe home"><span class="brand-mark" aria-hidden="true">BB</span><span class="brand-copy"><strong>Brew Bliss</strong><small>CAFÉ & ROASTERY</small></span></a>
+      <p>Made with warmth in Willowbrook.<br>See you over a cup.</p>
+      <div class="footer-links"><a href="#about">Our story</a><a href="#menu">Menu</a><a href="#contact">Contact</a></div>
+      <div class="social-links"><a href="#contact" aria-label="Instagram">ig</a><a href="#contact" aria-label="Facebook">f</a><a href="#contact" aria-label="TikTok">tk</a></div>
+    </div>
+    <div class="container footer-bottom"><span>&copy; 2026 Brew Bliss Cafe. Dummy content for demonstration.</span><a href="#top">Back to top &#8593;</a></div>
+  </footer>
+
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-labelledby="cart-title" aria-hidden="true">
+    <div class="drawer-header"><div><p class="eyebrow">Your picks</p><h2 id="cart-title">Your order</h2></div><button class="icon-button close-drawer" type="button" data-close-cart aria-label="Close order"><span>&times;</span></button></div>
+    <div class="cart-content" id="cart-content"></div>
+    <div class="cart-footer" id="cart-footer">
+      <div class="cart-total"><span>Subtotal</span><strong id="cart-total">$0.00</strong></div>
+      <p class="cart-note">Pickup orders are ready in about 15 minutes.</p>
+      <button class="button button-primary checkout-button" type="button" id="checkout-button">Place pickup order <span aria-hidden="true">&#8594;</span></button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
