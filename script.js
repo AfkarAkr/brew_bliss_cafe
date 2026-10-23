@@ -1,12 +1,12 @@
 const menuItems = [
-  { id: "sunrise-latte", name: "Sunrise Latte", category: "coffee", description: "Espresso, oat milk, honey, and a little orange zest.", price: 5.5 },
-  { id: "house-cold-brew", name: "House Cold Brew", category: "coffee", description: "Slow-steeped for 18 hours, smooth and chocolatey.", price: 4.75 },
-  { id: "maple-cappuccino", name: "Maple Cappuccino", category: "coffee", description: "Velvety foam, double espresso, and maple warmth.", price: 5.25 },
-  { id: "golden-chai", name: "Golden Chai", category: "tea", description: "House-spiced chai with turmeric and steamed milk.", price: 4.5 },
-  { id: "berry-fizz", name: "Berry Fizz", category: "tea", description: "Hibiscus tea, seasonal berries, and sparkling water.", price: 4.25 },
-  { id: "almond-croissant", name: "Almond Croissant", category: "food", description: "Buttery layers, almond cream, and toasted flakes.", price: 4.95 },
-  { id: "cinnamon-toast", name: "Cinnamon Toast", category: "food", description: "Sourdough, whipped butter, cinnamon sugar, sea salt.", price: 4.25 },
-  { id: "lemon-loaf", name: "Lemon Poppy Loaf", category: "food", description: "Bright lemon, poppy seeds, and a soft citrus glaze.", price: 4.5 }
+  { id: "sunrise-latte", name: "Sunrise Latte", category: "coffee", description: "Espresso, oat milk, honey, and a little orange zest.", price: 1650 },
+  { id: "house-cold-brew", name: "House Cold Brew", category: "coffee", description: "Slow-steeped for 18 hours, smooth and chocolatey.", price: 1450 },
+  { id: "maple-cappuccino", name: "Maple Cappuccino", category: "coffee", description: "Velvety foam, double espresso, and maple warmth.", price: 1550 },
+  { id: "golden-chai", name: "Golden Chai", category: "tea", description: "House-spiced chai with turmeric and steamed milk.", price: 1350 },
+  { id: "berry-fizz", name: "Berry Fizz", category: "tea", description: "Hibiscus tea, seasonal berries, and sparkling water.", price: 1250 },
+  { id: "almond-croissant", name: "Almond Croissant", category: "food", description: "Buttery layers, almond cream, and toasted flakes.", price: 1500 },
+  { id: "cinnamon-toast", name: "Cinnamon Toast", category: "food", description: "Sourdough, whipped butter, cinnamon sugar, sea salt.", price: 1250 },
+  { id: "lemon-loaf", name: "Lemon Poppy Loaf", category: "food", description: "Bright lemon, poppy seeds, and a soft citrus glaze.", price: 1350 },
 ];
 
 const state = { cart: loadCart(), filter: "all" };
@@ -15,6 +15,7 @@ const cartDrawer = document.querySelector("#cart-drawer");
 const cartContent = document.querySelector("#cart-content");
 const cartTotal = document.querySelector("#cart-total");
 const cartCount = document.querySelector("#cart-count");
+const clearCartButton = document.querySelector("#clear-cart-button");
 const overlay = document.querySelector("#overlay");
 const toast = document.querySelector("#toast");
 let toastTimer;
@@ -33,7 +34,7 @@ function saveCart() {
 }
 
 function money(value) {
-  return `$${value.toFixed(2)}`;
+  return `Rs. ${value.toLocaleString()}`;
 }
 
 function getMenuItem(itemId) {
@@ -77,6 +78,7 @@ function renderCart() {
   const subtotal = entries.reduce((total, entry) => total + entry.item.price * entry.quantity, 0);
   cartCount.textContent = itemCount;
   cartTotal.textContent = money(subtotal);
+  if (clearCartButton) clearCartButton.disabled = !entries.length;
 
   if (!entries.length) {
     cartContent.innerHTML = `<div class="empty-cart"><div class="empty-cart-icon" aria-hidden="true">{ }</div><h3>Your order is empty</h3><p>Find something delicious on the menu<br>and make it a good day.</p></div>`;
@@ -170,6 +172,19 @@ document.addEventListener("keydown", (event) => {
     menuToggle.setAttribute("aria-expanded", "false");
   }
 });
+
+if (clearCartButton) {
+  clearCartButton.addEventListener("click", () => {
+    if (!getCartEntries().length) {
+      showToast("Your order is already empty.");
+      return;
+    }
+    state.cart = {};
+    saveCart();
+    renderCart();
+    showToast("All items have been cleared from your order.");
+  });
+}
 
 document.querySelector("#checkout-button").addEventListener("click", () => {
   if (!getCartEntries().length) {
